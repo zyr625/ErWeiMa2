@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private TextView textView;
-    private Button button;
+    private Button button,gd_btn;
     private int REQUEST_CODE = 100;
     final int DATE_DIALOG = 1;
     int mYear, mMonth, mDay;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imag);
         textView = findViewById(R.id.dateDisplay);
         button = findViewById(R.id.dateChoose);
+        gd_btn=findViewById(R.id.gdmap);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         mYear = ca.get(Calendar.YEAR);
         mMonth = ca.get(Calendar.MONTH);
         mDay = ca.get(Calendar.DAY_OF_MONTH);
+        gd_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MapActivity.class));
+            }
+        });
     }
 
     @Override
